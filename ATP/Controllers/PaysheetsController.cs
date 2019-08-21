@@ -1,12 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
+﻿using ATP.Models;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
-using ATP.Models;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
+using System.Data;
+using System.Data.SqlClient;
+using System.Configuration;
 
 namespace ATP.Controllers
 {

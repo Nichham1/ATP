@@ -14,7 +14,7 @@
 <body style="font-family: Arial, Helvetica, sans-serif; font-size: small">
    <form id="form1" runat="server">
       <div>
-         <h4 style="font-size: large">Log In</h4>
+         <h4 style="font-size: x-large">Log In</h4>
          <hr />
          <asp:PlaceHolder runat="server" ID="LoginStatus" Visible="false">
             <p>
