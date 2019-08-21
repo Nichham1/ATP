@@ -4,9 +4,12 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
+    <style>
+        body{height: 200px; width: 400px; background: black; position: fixed; top: 50%; left: 50%; margin-top: -100px; margin-left: -200px; color:azure; text-align:center;}
+    </style>
     <title></title>
 </head>
-<body style="font-family: Arial, Helvetica, sans-serif; font-size: small">
+<body style="font-family: Arial, Helvetica, sans-serif; font-size: small;">
     <form id="form1" runat="server">
     <div>
         <h4 style="font-size: medium">Register a new user</h4>
@@ -33,10 +36,13 @@
             </div>
         </div>
         <div>
+            <br/>
+
             <div>
-                <asp:Button runat="server" OnClick="CreateUser_Click" Text="Register" />
+                <asp:Button runat="server" OnClick="CreateUser_Click" Text="Register"/>
             </div>
         </div>
+        
     </div>
     </form>
 </body>

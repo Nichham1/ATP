@@ -4,6 +4,9 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
+    <style>
+        body{height: 200px; width: 400px; background: black; position: fixed; top: 50%; left: 50%; margin-top: -100px; margin-left: -200px; color:azure; text-align:center;}
+    </style>
    <title></title>
 </head>
 <body style="font-family: Arial, Helvetica, sans-serif; font-size: small">
@@ -29,6 +32,7 @@
                   <asp:TextBox runat="server" ID="Password" TextMode="Password" />
                </div>
             </div>
+             <br />
             <div style="margin-bottom: 10px">
                <div>
                   <asp:Button runat="server" OnClick="SignIn" Text="Log in" />
