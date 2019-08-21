@@ -4,110 +4,110 @@ using System.Linq;
 using System.Net;
 using System.Web.Mvc;
 
-namespace ATP
+namespace ATP.Controllers
 {
     [Authorize]
-    public class CustomersController : Controller
+    public class DriversController : Controller
     {
         private APTDatabaseEntities db = new APTDatabaseEntities();
 
-        // GET: Customers
+        // GET: Drivers
         public ActionResult Index()
         {
-            return View(db.Customers.ToList());
+            return View(db.Drivers.ToList());
         }
 
-        // GET: Customers/Details/5
+        // GET: Drivers/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Customer customer = db.Customers.Find(id);
-            if (customer == null)
+            Driver driver = db.Drivers.Find(id);
+            if (driver == null)
             {
                 return HttpNotFound();
             }
-            return View(customer);
+            return View(driver);
         }
 
-        // GET: Customers/Create
+        // GET: Drivers/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Customers/Create
+        // POST: Drivers/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,FirstName,LastName,Address,Order_Date")] Customer customer)
+        public ActionResult Create([Bind(Include = "Id,FirstName,LastName,Date_Of_Employmet")] Driver driver)
         {
             if (ModelState.IsValid)
             {
-                db.Customers.Add(customer);
+                db.Drivers.Add(driver);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(customer);
+            return View(driver);
         }
 
-        // GET: Customers/Edit/5
+        // GET: Drivers/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Customer customer = db.Customers.Find(id);
-            if (customer == null)
+            Driver driver = db.Drivers.Find(id);
+            if (driver == null)
             {
                 return HttpNotFound();
             }
-            return View(customer);
+            return View(driver);
         }
 
-        // POST: Customers/Edit/5
+        // POST: Drivers/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,FirstName,LastName,Address,Order_Date")] Customer customer)
+        public ActionResult Edit([Bind(Include = "Id,FirstName,LastName,Date_Of_Employmet")] Driver driver)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(customer).State = EntityState.Modified;
+                db.Entry(driver).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(customer);
+            return View(driver);
         }
 
-        // GET: Customers/Delete/5
+        // GET: Drivers/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Customer customer = db.Customers.Find(id);
-            if (customer == null)
+            Driver driver = db.Drivers.Find(id);
+            if (driver == null)
             {
                 return HttpNotFound();
             }
-            return View(customer);
+            return View(driver);
         }
 
-        // POST: Customers/Delete/5
+        // POST: Drivers/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Customer customer = db.Customers.Find(id);
-            db.Customers.Remove(customer);
+            Driver driver = db.Drivers.Find(id);
+            db.Drivers.Remove(driver);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

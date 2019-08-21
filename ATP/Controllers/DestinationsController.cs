@@ -4,110 +4,115 @@ using System.Linq;
 using System.Net;
 using System.Web.Mvc;
 
-namespace ATP
+namespace ATP.Controllers
 {
     [Authorize]
-    public class CustomersController : Controller
+    public class DestinationsController : Controller
     {
         private APTDatabaseEntities db = new APTDatabaseEntities();
 
-        // GET: Customers
+        // GET: Destinations
         public ActionResult Index()
         {
-            return View(db.Customers.ToList());
+            var destinations = db.Destinations.Include(d => d.Rate);
+            return View(destinations.ToList());
         }
 
-        // GET: Customers/Details/5
+        // GET: Destinations/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Customer customer = db.Customers.Find(id);
-            if (customer == null)
+            Destination destination = db.Destinations.Find(id);
+            if (destination == null)
             {
                 return HttpNotFound();
             }
-            return View(customer);
+            return View(destination);
         }
 
-        // GET: Customers/Create
+        // GET: Destinations/Create
         public ActionResult Create()
         {
+            ViewBag.RateID = new SelectList(db.Rates, "Id", "Name");
             return View();
         }
 
-        // POST: Customers/Create
+        // POST: Destinations/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,FirstName,LastName,Address,Order_Date")] Customer customer)
+        public ActionResult Create([Bind(Include = "Id,Name,RateID")] Destination destination)
         {
             if (ModelState.IsValid)
             {
-                db.Customers.Add(customer);
+                db.Destinations.Add(destination);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(customer);
+            ViewBag.RateID = new SelectList(db.Rates, "Id", "Name", destination.RateID);
+            return View(destination);
         }
 
-        // GET: Customers/Edit/5
+        // GET: Destinations/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Customer customer = db.Customers.Find(id);
-            if (customer == null)
+            Destination destination = db.Destinations.Find(id);
+            if (destination == null)
             {
                 return HttpNotFound();
             }
-            return View(customer);
+            ViewBag.RateID = new SelectList(db.Rates, "Id", "Name", destination.RateID);
+            return View(destination);
         }
 
-        // POST: Customers/Edit/5
+        // POST: Destinations/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,FirstName,LastName,Address,Order_Date")] Customer customer)
+        public ActionResult Edit([Bind(Include = "Id,Name,RateID")] Destination destination)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(customer).State = EntityState.Modified;
+                db.Entry(destination).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(customer);
+            ViewBag.RateID = new SelectList(db.Rates, "Id", "Name", destination.RateID);
+            return View(destination);
         }
 
-        // GET: Customers/Delete/5
+        // GET: Destinations/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Customer customer = db.Customers.Find(id);
-            if (customer == null)
+            Destination destination = db.Destinations.Find(id);
+            if (destination == null)
             {
                 return HttpNotFound();
             }
-            return View(customer);
+            return View(destination);
         }
 
-        // POST: Customers/Delete/5
+        // POST: Destinations/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Customer customer = db.Customers.Find(id);
-            db.Customers.Remove(customer);
+            Destination destination = db.Destinations.Find(id);
+            db.Destinations.Remove(destination);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

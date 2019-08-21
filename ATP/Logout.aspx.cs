@@ -6,7 +6,7 @@ namespace ATruckingPayroll
 {
     public partial class Logout : System.Web.UI.Page
     {
-       protected void Timer1_Tick(object sender, EventArgs e)
+        protected void Timer1_Tick(object sender, EventArgs e)
         {
             Session.Clear();
             Session.Abandon();

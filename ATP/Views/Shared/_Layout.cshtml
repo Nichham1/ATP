@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title - Aderson Trucking Payroll</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
@@ -19,17 +19,18 @@
 
                 <a href="~/Login.aspx" class=" btn btn-default btn-flat btn-sm">Login</a>
                 <a href="~/LogOut.aspx" class="btn btn-default btn-flat btn-sm">Sign out</a>
-                @* @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })*@
-
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
+
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("Customer", "Index", "Customers")</li>
+                    <li>@Html.ActionLink("Destination", "Index", "Destinations")</li>
+                    <li>@Html.ActionLink("Driver", "Index", "Drivers")</li>
+                    <li>@Html.ActionLink("Rates", "Index", "Rates")</li>
+                    <li>@Html.ActionLink("Paysheets", "Index","Paysheets")</li>
                 </ul>
             </div>
-
 
         </div>
     </div>
@@ -37,12 +38,13 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <p>&copy; @DateTime.Now.Year - Managed by i-Tech </p>
         </footer>
     </div>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+    
 </body>
 </html>
