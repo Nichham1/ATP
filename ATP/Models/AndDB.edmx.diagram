@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="0be31df55c90463a8468479977ac1f6c" Name="Diagram1">
+        <EntityTypeShape EntityType="APTDatabaseModel.Customer" Width="1.5" PointX="7.25" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="APTDatabaseModel.Destination" Width="1.5" PointX="0.5" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="APTDatabaseModel.Driver" Width="1.5" PointX="7.25" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="APTDatabaseModel.Paysheet" Width="1.5" PointX="3.375" PointY="0.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="APTDatabaseModel.Rate" Width="1.5" PointX="0.5" PointY="0.5" IsExpanded="true" />
+        <AssociationConnector Association="APTDatabaseModel.FK_dbo_Paysheet_dbo_Customer_CustomerID" ManuallyRouted="false" />
+        <AssociationConnector Association="APTDatabaseModel.FK_dbo_Destination_dbo_Rate_RateID" ManuallyRouted="false" />
+        <AssociationConnector Association="APTDatabaseModel.FK_dbo_Paysheet_dbo_Destination_DestinationID" ManuallyRouted="false" />
+        <AssociationConnector Association="APTDatabaseModel.FK_dbo_Paysheet_dbo_Drivers_DriversID" ManuallyRouted="false" />
+        <AssociationConnector Association="APTDatabaseModel.FK_dbo_Paysheet_dbo_Rate_RateID" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
