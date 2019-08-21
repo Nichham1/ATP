@@ -5,14 +5,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <style>
-        body{height: 200px; width: 400px; background: black; position: fixed; top: 50%; left: 50%; margin-top: -100px; margin-left: -200px; color:azure; text-align:center;}
-    </style>
+        body{ background-image: url('Content/img/bangkok-city.jpg'); background-repeat:no-repeat; background-size:cover; margin: 0;height: 200px; width: 400px; position: fixed; top: 50%; left: 50%; margin-top: -100px; margin-left: -200px; color:azure; text-align:center;}
+     
+             
+        </style>
    <title></title>
 </head>
 <body style="font-family: Arial, Helvetica, sans-serif; font-size: small">
    <form id="form1" runat="server">
       <div>
-         <h4 style="font-size: medium">Log In</h4>
+         <h4 style="font-size: large">Log In</h4>
          <hr />
          <asp:PlaceHolder runat="server" ID="LoginStatus" Visible="false">
             <p>
